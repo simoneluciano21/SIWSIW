@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>Dettagli esame</title>
+	<link rel="stylesheet" href="bootstrap-3.3.6-dist/css/msc.css"
+		type="text/css" />
+</h:head>
+<h:body rendered="#{utenteController.verificaSessioneAdmin()}">
+	<h:form>
+		<h:dataTable value="#{esameController.esame}" var="e">
+			<h:column>
+				<f:facet name="header">ID</f:facet>
+         #{e.idEsame}
+      </h:column>
+			<h:column>
+				<f:facet name="header">DATA PRENOTAZIONE</f:facet>
+         #{e.dataPrenotazione}
+         
+      </h:column>
+			<h:column>
+				<f:facet name="header">PAZIENTE</f:facet>
+         #{e.paziente.cognomePaziente}
+      </h:column>
+			<h:column>
+				<f:facet name="header">DATA ESAME</f:facet>
+         #{e.dataEsame}
+      </h:column>
+			<h:column>
+				<f:facet name="header">MEDICO</f:facet>
+         #{e.medico.cognomeMedico}
+      </h:column>
+			<h:column>
+				<f:facet name="header">TIPOLOGIA ESAME</f:facet>
+         #{e.tipologiaEsame.nomeTipologia}
+      </h:column>
+      <h:column>
+				<f:facet name="header">INSERISCI RISULTATI</f:facet>
+         		<h:commandButton value="Inserisci risultati" 
+			action="#{rigaEsameController.inserimentoEsame(e)}" />
+      </h:column>
+		
+
+		</h:dataTable>
+
+		<h:commandButton value="Indietro"
+			action="nuoviRisultati" />
+			<br />
+		
+	</h:form>
+</h:body>
+</html>

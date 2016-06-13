@@ -1,0 +1,188 @@
+body {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #f5f5f5;
+}
+
+.form-signin {
+    max-width: 900px;
+    padding: 19px 29px 29px;
+    margin: 0 auto 20px;
+    background-color: #fff;
+    border: 1px solid #e5e5e5;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+    -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+    box-shadow: 0 1px 2px rgba(0,0,0,.05);
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+    margin-bottom: 10px;
+}
+.form-signin input[type="text"],
+.form-signin input[type="password"] {
+    font-size: 16px;
+    height: auto;
+    margin-bottom: 15px;
+    padding: 7px 9px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+/* stilizzazione "zebrata" delle righe della tabella */
+tr:nth-of-type(odd) {
+    background: #eee;
+}
+th {
+    background: #222;
+    color: white;
+    font-weight: bold;
+}
+td, th {
+    padding: 6px;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+
+/*
+Questa query aggiunge del CSS per tutti gli schermi con
+una risoluzione inferiore a 760px
+*/
+@media
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+
+    /* Forza la tabella a non essere pi� una tabella */
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    /* Nasconde la testata della tabella (senza il dispaly non per una maggiore accessibilit�) */
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    tr { border: 1px solid #ccc; }
+
+    td {
+        /* Per comportarsi come una "riga" della tabella */
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%;
+    }
+
+    td:before {
+        /* Per inserire una descrizione ad ogni tabella */
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+    }
+    /*
+    Dati di ogni descrizione
+    */
+    td:nth-of-type(1):before { content: "Name"; }
+    td:nth-of-type(2):before { content: "Codic"; }
+    td:nth-of-type(3):before { content: "Prezzo"; }
+    td:nth-of-type(4):before { content: "Descrizione"; }
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 480px) {
+    body {
+        padding: 0;
+        margin: 0;
+        width: 320px; }
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    body {
+        width: 495px;
+    }
+}
+
+/* Bottoni */
+
+.button {
+    display: inline-block;
+    vertical-align: top;
+    min-width: 60px;
+    line-height: 35px;
+    padding: 0 20px;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-shadow: 0 1px rgba(0, 0, 0, 0.2);
+    background: #8c96a4;
+    border: 1px solid;
+    border-color: #8c8f9a #78828b #6e6e6e;
+    background-image: -webkit-linear-gradient(top, #a9b5c4, #848d9b 90%);
+    background-image: -moz-linear-gradient(top, #a9b5c4, #848d9b 90%);
+    background-image: -o-linear-gradient(top, #a9b5c4, #848d9b 90%);
+    background-image: linear-gradient(to bottom, #a9b5c4, #848d9b 90%);
+    -webkit-box-shadow: inset 0 1px rgba(255, 255, 255, 0.15), inset 0 0 1px 1px rgba(255, 255, 255, 0.15), 0 1px 1px rgba(0, 0, 0, 0.1);
+    box-shadow: inset 0 1px rgba(255, 255, 255, 0.15), inset 0 0 1px 1px rgba(255, 255, 255, 0.15), 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+.button:first-child {
+    border-radius: 3px 0 0 3px;
+}
+.button:last-child {
+    border-radius: 0 3px 3px 0;
+}
+.button:only-child {
+    border-radius: 3px;
+}
+.button + .button {
+    position: relative;
+    margin-left: -1px;
+}
+.button:active {
+    background: #848d9b;
+    border-color: #6e6e6e #78828b #78828b;
+    -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1), 0 1px rgba(255, 255, 255, 0.3);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1), 0 1px rgba(255, 255, 255, 0.3);
+}
+
+.button-blue {
+    background: #6990d1;
+    border-color: #687ebb #5f74a6 #4e6198;
+    background-image: -webkit-linear-gradient(top, #8eb7e0, #5f85cc 90%);
+    background-image: -moz-linear-gradient(top, #8eb7e0, #5f85cc 90%);
+    background-image: -o-linear-gradient(top, #8eb7e0, #5f85cc 90%);
+    background-image: linear-gradient(to bottom, #8eb7e0, #5f85cc 90%);
+}
+.button-blue:active {
+    background: #5f85cc;
+    border-color: #4e6198 #5f74a6 #5f74a6;
+}
+
+
+/* Customize the text color and shadow color and to optimize text legibility. */
+
+.tagline {
+    text-shadow: 0 0 10px #000;
+    color: #fff;
+}
+
+.img-center {
+    margin: 0 auto;
+}
+
+footer {
+    margin: 50px 0;
+}

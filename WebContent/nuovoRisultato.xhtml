@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+
+<h:head>
+	<link rel="stylesheet" href="bootstrap-3.3.6-dist/css/bootstrap.css" type="text/css"/>
+	<link rel="stylesheet" href="bootstrap-3.3.6-dist/css/msc.css" type="text/css"/>
+	<title>INSERIMENTO NUOVO RISULTATO</title>
+</h:head>
+<h:body rendered="#{utenteController.verificaSessioneAdmin()}">
+
+	<h:form rendered="#{utenteController.verificaSessioneAdmin()}">
+	<h:commandButton value="Indietro" action="visualizzaEsame" immediate="true"/>
+	
+	
+		RISULTATI PRESENTI:
+		<h:dataTable value="#{rigaEsameController.risultati}" var="r">
+			<h:column>
+				<f:facet name="header">NOME</f:facet>
+         #{r.nome}
+      </h:column>
+			<h:column>
+				<f:facet name="header">VALORE</f:facet>
+         #{r.valore}
+         
+      </h:column>
+      <h:column>
+				<f:facet name="header">ELIMINA</f:facet>
+         <h:commandButton value="Elimina"
+			action="#{rigaEsameController.eliminaRigaEsame(r)}" immediate="true" />
+         
+      </h:column>
+      
+
+		</h:dataTable>
+	<br />
+         INSERISCI UN RISULTATO
+	<br />
+	
+		NOME
+		<h:inputText value="#{rigaEsameController.nome}" 
+			required="true"
+			requiredMessage="Il nome del risultato è obbligatorio"
+			id="nomeRisultato" />
+		<h:message for="nomeRisultato" styleClass="alert-danger" />
+		<br />
+		
+		VALORE
+		<h:inputText id="valoreRisultato" required="true"
+			requiredMessage="Il valore del risultato è obbligatorio"
+			value="#{rigaEsameController.valore}" />
+			<h:message for="valoreRisultato" styleClass="alert-danger" />
+		<br />
+
+		<br />
+		<h:commandButton value="Inserisci risultato"
+			action="#{rigaEsameController.createRigaEsame}" />
+		<br />	
+					
+	</h:form>
+</h:body>
+</html>

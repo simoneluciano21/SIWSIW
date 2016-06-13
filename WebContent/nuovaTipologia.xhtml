@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+
+<h:head>
+	<link rel="stylesheet" href="bootstrap-3.3.6-dist/css/bootstrap.css" type="text/css"/>
+	<link rel="stylesheet" href="bootstrap-3.3.6-dist/css/msc.css" type="text/css"/>
+	<title>Inserisci Nuova Tipologia</title>
+</h:head>
+<h:body rendered="#{utenteController.verificaSessioneAdmin()}">
+
+	<h:form>
+	<h:commandButton value="Indietro" action="menuAdmin" immediate="true"/>
+         INSERISCI UNA NUOVA TIPOLOGIA
+	<br />
+	
+		CODICE
+		<h:inputText value="#{tipologiaEsameController.codiceTipologia}"
+			required="true"
+			requiredMessage="Il codice della tipologia è obbligatorio"
+			id="codiceTipologia" />
+		<h:message for="codiceTipologia" styleClass="alert-danger" />
+		<br />
+		
+		NOME
+		<h:inputText id="nomeTipologia" required="true"
+			requiredMessage="Il nome della tipologia è obbligatorio"
+			value="#{tipologiaEsameController.nomeTipologia}" />
+			<h:message for="nomeTipologia" styleClass="alert-danger" />
+		<br />
+		
+		COSTO
+		<h:inputText id="costo" required="true"
+			requiredMessage="Il costo della tipologia è obbligatorio" value="#{tipologiaEsameController.costo}" />
+		<h:message for="costo" styleClass="alert-danger" />
+		<br />
+		PREREQUISITI
+		<h:inputText id="prerequisiti" required="true"
+			requiredMessage="I prerequisiti della tipologia sono obbligatori"
+			value="#{tipologiaEsameController.prerequisiti}" />
+		<h:message for="prerequisiti" styleClass="alert-danger" />
+		<br />
+		
+		DESCRIZIONE
+		<h:inputText id="descrizione" 
+			value="#{tipologiaEsameController.descrizione}" />
+		
+		<br />
+		<h:commandButton value="Inserisci"
+			action="#{tipologiaEsameController.createTipologiaEsame}" />
+		<br />	
+					
+	</h:form>
+</h:body>
+</html>

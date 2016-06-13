@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0"
+	xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+	<persistence-unit name="prodotti" transaction-type="RESOURCE_LOCAL">
+		<jta-data-source>PostgreSQL Database</jta-data-source>
+		<class>model.TipologiaEsame</class>
+
+
+		<properties>
+			<property name="openjpa.ConnectionDriverName" value="org.postgresql.Driver" />
+			<property name="openjpa.ConnectionUserName" value="postgres" />
+			<property name="openjpa.ConnectionPassword" value="postgres" />
+			<property name="openjpa.ConnectionURL" value="jdbc:postgresql://localhost/postgres" />
+			<property name="openjpa.jdbc.DBDictionary" value="postgres" />
+			<property name="openjpa.jdbc.SynchronizeMappings"
+				value="buildSchema(SchemaAction=add,ForeignKeys=true)" />
+			<property name="openjpa.Log" value="DefaultLevel=WARN, Tool=INFO" />
+			<property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema(ForeignKeys=true)" />
+			<property name="openjpa.RuntimeUnenhancedClasses" value="supported"/>
+			<property name="openjpa.InitializeEagerly" value="true"/>
+			
+		</properties>
+	</persistence-unit>
+</persistence>

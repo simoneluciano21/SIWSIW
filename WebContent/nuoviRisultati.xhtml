@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+
+<h:head>
+	<link rel="stylesheet" href="bootstrap-3.3.6-dist/css/bootstrap.css"
+		type="text/css" />
+	<link rel="stylesheet" href="bootstrap-3.3.6-dist/css/msc.css"
+		type="text/css" />
+	<title>INSERISCI RISULTATI ESAME</title>
+</h:head>
+<h:body rendered="#{utenteController.verificaSessioneAdmin()}">
+
+	<h:form>
+		<h:commandButton value="Indietro" action="menuAdmin" immediate="true" />
+         SCEGLI L'ESAME DA AGGIORNARE:
+	<br />
+
+		<h:dataTable value="#{esameController.esami}" var="e">
+
+			<h:column>
+				<f:facet name="header">ID ESAME</f:facet>
+				<h:outputText value="#{e.idEsame}">
+				</h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">PAZIENTE</f:facet>
+				<h:outputText value="#{e.paziente.cognomePaziente}">
+				</h:outputText>
+				<h:outputText value=" #{e.paziente.nomePaziente}">
+				</h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">VISUALIZZA ESAME</f:facet>
+				<h:commandButton value="VISUALIZZA"
+					action="#{esameController.visualizzaEsame(e)}">
+				</h:commandButton>
+			</h:column>
+		</h:dataTable>
+
+
+	</h:form>
+</h:body>
+</html>
